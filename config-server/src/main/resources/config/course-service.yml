@@ -1,0 +1,13 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: course-service
+  # Force Servlet (MVC) mode — prevents Firestore reactive dep from switching to WebFlux
+  main:
+    web-application-type: servlet
+  cloud:
+    gcp:
+      firestore:
+        project-id: ${GCP_PROJECT_ID}

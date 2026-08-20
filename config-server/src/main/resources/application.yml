@@ -4,9 +4,13 @@ server:
 spring:
   application:
     name: config-server
-  main:
-    web-application-type: servlet
+  profiles:
+    active: native
   cloud:
+    config:
+      server:
+        native:
+          searchLocations: classpath:/config
     gcp:
       firestore:
         project-id: ${GCP_PROJECT_ID}
