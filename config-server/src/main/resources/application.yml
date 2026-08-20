@@ -3,8 +3,7 @@ server:
 
 spring:
   application:
-    name: course-service
-  # Force Servlet (MVC) mode — prevents Firestore's reactive dependency from switching to WebFlux
+    name: config-server
   main:
     web-application-type: servlet
   cloud:
