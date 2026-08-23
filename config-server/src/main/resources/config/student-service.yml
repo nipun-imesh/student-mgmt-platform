@@ -5,7 +5,7 @@ spring:
   application:
     name: student-service
   datasource:
-    url: jdbc:mysql://<cloud-sql-private-ip>:3306/student_db
+    url: jdbc:mysql://10.39.16.3:3306/student_db
     username: root
     password: ${DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
