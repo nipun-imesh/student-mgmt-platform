@@ -6,6 +6,14 @@ spring:
     name: api-gateway
   cloud:
     gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_FIRST
       discovery:
         locator:
           enabled: true
@@ -15,20 +23,14 @@ spring:
           uri: lb://STUDENT-SERVICE
           predicates:
             - Path=/api/students/**
-          filters:
-            - StripPrefix=1
         - id: course-service
           uri: lb://COURSE-SERVICE
           predicates:
             - Path=/api/courses/**
-          filters:
-            - StripPrefix=1
         - id: enrollment-service
           uri: lb://ENROLLMENT-SERVICE
           predicates:
             - Path=/api/enrollments/**
-          filters:
-            - StripPrefix=1
 
 eureka:
   client:
