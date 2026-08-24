@@ -15,14 +15,20 @@ spring:
           uri: lb://STUDENT-SERVICE
           predicates:
             - Path=/api/students/**
+          filters:
+            - StripPrefix=1
         - id: course-service
           uri: lb://COURSE-SERVICE
           predicates:
             - Path=/api/courses/**
+          filters:
+            - StripPrefix=1
         - id: enrollment-service
           uri: lb://ENROLLMENT-SERVICE
           predicates:
             - Path=/api/enrollments/**
+          filters:
+            - StripPrefix=1
 
 eureka:
   client:
